@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Áo thời trang",
+      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588992/ao7_cpku2j.jpg",
+      "description": "sam pham này rất tốt ",
+      "price": "333",
+      "quantity": 10,
+      "color": "Đen"
+    },
+    {
+      "id": 2,
+      "name": "Áo thời trang4",
+      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588983/ao4_fhtvdq.jpg",
+      "description": "sam pham này rất tốt ",
+      "price": "333",
+      "quantity": 10,
+      "color": "Đen"
+    },
+    {
+      "id": 3,
+      "name": "Áo thời trang3",
+      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588986/ao3_vr0yow.jpg",
+      "description": "sam pham này rất tốt ",
+      "price": "333",
+      "quantity": 10,
+      "color": "Đen"
+    },
+    {
+      "id": 4,
+      "name": "Áo thời trang2",
+      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588995/ao5_d8ckgb.jpg",
+      "description": "sam pham này rất tốt ",
+      "price": "333",
+      "quantity": 10,
+      "color": "Đen"
+    },
+    {
+      "id": 5,
+      "name": "Áo thời trang1",
+      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588992/ao8_pukpua.jpg",
+      "description": "sam pham này rất tốt ",
+      "price": "333",
+      "quantity": 10,
+      "color": "Đen"
+    }
+  ]
+}

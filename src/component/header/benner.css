@@ -1,0 +1,43 @@
+.benner {
+    padding-top: 3%;
+    width: 65%;
+    margin: auto;
+    padding-bottom: 2%;
+}
+
+.benner img {
+    border-radius: 10px;
+}
+
+.conten-text {
+    position: absolute;
+    color: #ffff;
+    float: left;
+}
+
+.conten-text h5 {
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.conten-text .text {
+    padding-left: 25%;
+    padding-top: 20%;
+}
+
+.conten-text h1 {
+    padding-top: 5%;
+}
+
+.conten-text button {
+    margin-top: 5%;
+    background: #e9d8b4;
+    color: black;
+    padding: 5% 7% 5% 7%;
+    border-radius: 10%;
+    /* display: ; */
+}
+
+.img:hover {
+    transform: scale(1.3);
+}
