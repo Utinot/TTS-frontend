@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react'
 import Headers from '../../component/header/Headers'
-import { Space, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
 import { useSelector, useDispatch } from 'react-redux';
 import { DecrementRe, IncrementRe, readCarts, removeCart } from '../../features/cart/Cart.silce';
+import { DeleteOutlined } from '@ant-design/icons';
+
 
 type Props = {}
 const Carts = (props: Props) => {
     const carts = useSelector((state: any) => state.cart.carts)
     const dispatch = useDispatch<any>()
-
     console.log(carts);
-    
-
 
     let sum = 0;
     if (carts == null) {
@@ -37,60 +34,12 @@ const Carts = (props: Props) => {
         }
     }
 
-    const Decrement = (id: any) => {
-        dispatch(DecrementRe(id))
+    const Decrement = (info: any) => {
+        dispatch(DecrementRe(info))
     }
-    const Increment = (id: any) => {
-        dispatch(IncrementRe(id))
+    const Increment = (info: any) => {
+        dispatch(IncrementRe(info))
     }
-    const columns: ColumnsType<any> = [
-        {
-            title: 'Ảnh',
-            dataIndex: 'img',
-            key: 'img',
-            render: (theImageURL) => (
-                <img alt={theImageURL} src={theImageURL} width={100} />
-            ),
-        },
-        {
-            title: 'Giá',
-            dataIndex: 'price',
-            key: 'price',
-        },
-        {
-            title: 'Tên sản phẩm',
-            dataIndex: 'quantity',
-            key: 'quantity',
-            render: (quantity) => (
-                <div style={{ fontWeight: '700', }}>
-                    <div>
-                        <input type="submit" value='-' onClick={() => Decrement({ _id: carts._id })} />
-                        <span style={{ padding: '0px 3% 0px 3%' }} >{quantity} </span>
-                        <input style={{}} type="submit" value='+' onClick={() => Increment({ _id: carts.id })} />
-                    </div>
-                </div>
-            ),
-        },
-        {
-            title: 'Tên sản phẩm',
-            dataIndex: 'name',
-            key: 'name',
-        },
-        {
-            title: 'màu',
-            dataIndex: 'color',
-            key: 'color',
-        },
-        {
-            title: 'Action',
-            key: 'action',
-            render: (_, record) => (
-                <Space size="middle">
-                    <a onClick={() => onDeleteProduct({ _id: carts.id })} >Delete</a>
-                </Space>
-            ),
-        },
-    ];
 
 
     return (
@@ -98,8 +47,37 @@ const Carts = (props: Props) => {
             <div>
                 <Headers />
             </div>
-            <div>
-                <Table columns={columns} dataSource={carts} />;
+            <div >
+                <table style={{ width: '100%', textAlign: 'center' }}>
+                    <thead style={{ borderStyle: 'solid', borderColor: 'inherit', borderWidth: '1px', paddingTop:'50px' }}>
+                        <tr>
+                            <th >STT</th>
+                            <th >Ảnh</th>
+                            <th >Giá</th>
+                            <th >Số lượng</th>
+                            <th >Tên sản phẩm</th>
+                            <th >Màu</th>
+                            <th >action</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        {carts.map((item: any, index: any) => {
+                            return <tr style={{ borderStyle: 'solid', borderColor: 'inherit', borderWidth: '1px', }}>
+                                <td>{index + 1}</td>
+                                <td> <img src={item.img} alt="" width={100} /> </td>
+                                <td>{item.price}</td>
+                                <td>
+                                    <input type="submit" value='-' onClick={() => Decrement({ _id: item._id })} />
+                                    <span style={{ padding: '0px 3% 0px 3%' }} >{item.quantity} </span>
+                                    <input style={{}} type="submit" value='+' onClick={() => Increment({ _id: item._id })} />
+                                </td>
+                                <td>{item.name}</td>
+                                <td> {item.color} </td>
+                                <td> <a href="" onClick={() => onDeleteProduct({ _id: item._id })}>  <DeleteOutlined /> </a> </td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
                 <div style={{ padding: '3%' }}>
                     <h1> Tổng Tiền : <span style={{ fontWeight: '800', fontSize: '30px', color: 'red' }}> {sum} </span>  </h1>
                 </div>

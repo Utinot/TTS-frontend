@@ -55,7 +55,7 @@ export const addCart = createAsyncThunk(
 );
 
 export const removeCart = createAsyncThunk("cart/removecart", (info: any) => {
-    const cartsa = initialState.carts.find(item => item._id)
+    const cartsa = initialState.carts.find(item => item._id == info._id)
     const cartsb = initialState.carts.filter(item => item !== cartsa)
     return cartsb
 })
@@ -84,11 +84,10 @@ const cartSlice = createSlice({
             build.addCase(removeCart.fulfilled, (state, { payload }) => {
                 localStorage.setItem("cart", JSON.stringify(payload))
                 state.carts = payload
-
             }),
             build.addCase(DecrementRe.fulfilled, (state, { payload }) => {
                 const cart = JSON.parse(localStorage.getItem("cart") as any)
-                const cartsa = cart.find((item: any) => item._id) 
+                const cartsa = cart.find((item: any) => item._id == payload._id)
                 cartsa.quantity--
                 if (cartsa.quantity <= 0) {
                     const confirm = window.confirm("Bạn có chắc chắn muốn xoá không")
@@ -107,7 +106,7 @@ const cartSlice = createSlice({
             }),
             build.addCase(IncrementRe.fulfilled, (state, { payload }) => {
                 const cart = JSON.parse(localStorage.getItem("cart") as any)
-                const cartsa = cart.find((item: any) => item._id)
+                const cartsa = cart.find((item: any) => item._id == payload._id)
                 cartsa.quantity++
 
                 localStorage.setItem("cart", JSON.stringify(cart))
