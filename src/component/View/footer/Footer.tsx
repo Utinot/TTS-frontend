@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Row, Select } from 'antd';
-import { FacebookOutlined, InstagramOutlined } from '@ant-design/icons';
+import { CodepenOutlined, FacebookOutlined, InstagramOutlined } from '@ant-design/icons';
 
 type Props = {}
 
@@ -59,7 +59,7 @@ const Footer = (props: Props) => {
     return (
         <div>
             <footer>
-                <div>
+                <div style={{ border: '2px solid #DDDDDD',marginTop:'20px' }}>
                     <Row style={rowStyle}>
                         <Col span={6}>
                             <div style={{ paddingLeft: '10%' }}>
@@ -69,7 +69,7 @@ const Footer = (props: Props) => {
                                         <p>Chúng tôi giao hàng tối đa trong 48 giờ!</p>
                                     </Col>
                                     <Col span={6} pull={18} style={{ paddingTop: '2%' }}>
-                                        <img src="https://onmenta.com/wp-content/themes/emart-1/assets/images/icon-1.svg" alt="" width={'60%'} />
+                                        <img src="https://beemart.store/wp-content/themes/emart/assets/images/icon-1.svg" alt="" />
                                     </Col>
                                 </Row>
                             </div>
@@ -82,7 +82,7 @@ const Footer = (props: Props) => {
                                         <p>Đổi trả miễn phí trong vòng 14 ngày</p>
                                     </Col>
                                     <Col span={6} pull={18} style={{ paddingTop: '2%' }}>
-                                        <img src="https://onmenta.com/wp-content/themes/emart-1/assets/images/icon-2.svg" alt="" width={'60%'} />
+                                        <img src="https://beemart.store/wp-content/themes/emart/assets/images/icon-1.svg" alt="" />
                                     </Col>
                                 </Row>
                             </div>
@@ -95,7 +95,7 @@ const Footer = (props: Props) => {
                                         <p>Chúng tôi giao hàng tối đa trong 48 giờ!</p>
                                     </Col>
                                     <Col span={6} pull={18} style={{ paddingTop: '2%' }}>
-                                        <img src="https://onmenta.com/wp-content/themes/emart-1/assets/images/icon-3.svg" alt="" width={'60%'} />
+                                        <img src="https://beemart.store/wp-content/themes/emart/assets/images/icon-1.svg" alt="" />
                                     </Col>
                                 </Row>
                             </div>
@@ -108,14 +108,14 @@ const Footer = (props: Props) => {
                                         <p>Chúng tôi giao hàng tối đa trong 48 giờ!</p>
                                     </Col>
                                     <Col span={6} pull={18} style={{ paddingTop: '2%' }}>
-                                        <img src="https://onmenta.com/wp-content/themes/emart-1/assets/images/icon-4.svg" alt="" width={'60%'} />
+                                        <img src="https://beemart.store/wp-content/themes/emart/assets/images/icon-1.svg" alt="" />
                                     </Col>
                                 </Row>
                             </div>
                         </Col>
                     </Row>
                 </div>
-                <div style={{ background: 'black' }}>
+                <div style={{ background: 'black', marginTop:'5px' }}>
                     <Row style={styleFooter}>
                         <Col span={4}>
                             <h2>Danh mục phổ biến</h2>
@@ -166,9 +166,9 @@ const Footer = (props: Props) => {
                         <hr />
                         <div>
                             <Row style={{ color: '#fff', maxWidth: '80%', margin: 'auto' }}>
-                                <Col span={8} style={{padding:'2%'}}>© Beemart – Bảo lưu mọi quyền</Col>
-                                <Col span={8} style={{paddingTop: '2px', textAlign:'center'}}><img src="https://res.cloudinary.com/dgeqw8b5i/image/upload/v1690873321/lbefgephujjss0llooje.png" alt="" /></Col>
-                                <Col span={8} style={{padding:'10px 4%', textAlign:'end'}}>
+                                <Col span={8} style={{ padding: '2%' }}>© Beemart – Bảo lưu mọi quyền</Col>
+                                <Col span={8} style={{ paddingTop: '2px', textAlign: 'center' }}><img src="https://res.cloudinary.com/dgeqw8b5i/image/upload/v1690873321/lbefgephujjss0llooje.png" alt="" /></Col>
+                                <Col span={8} style={{ padding: '10px 4%', textAlign: 'end' }}>
                                     <select name="" id="" style={{ background: 'black', padding: '2%', borderRadius: '10px' }}>
                                         <option value="">Hoa Kỳ (USD$)</option>
                                         <option value="">ansd</option>

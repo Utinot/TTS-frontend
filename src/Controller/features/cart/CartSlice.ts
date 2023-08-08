@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import Carts from "../../view/home/Carts";
 
 interface IProductState {
     cart: {},
@@ -17,10 +16,6 @@ if (localStorage.getItem("cart")) {
 } else {
     initialState.carts = [];
 }
-export const readCarts = createAsyncThunk("cart/readcarts", async () => {
-    const newCart = await JSON.parse(localStorage.getItem("cart") as any);
-    return newCart;
-});
 
 export const addCart = createAsyncThunk(
     "cart/addcart",
@@ -55,9 +50,7 @@ export const addCart = createAsyncThunk(
 );
 
 export const removeCart = createAsyncThunk("cart/removecart", (info: any) => {
-    const cartsa = initialState.carts.find(item => item._id == info._id)
-    const cartsb = initialState.carts.filter(item => item !== cartsa)
-    return cartsb
+    return info
 })
 
 
@@ -74,16 +67,16 @@ const cartSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (build) => {
-        build.addCase(readCarts.fulfilled, (state, { payload }) => {
+        build.addCase(addCart.fulfilled, (state: any, { payload }) => {
+            localStorage.setItem("cart", JSON.stringify(payload));
             state.carts = payload;
         }),
-            build.addCase(addCart.fulfilled, (state: any, { payload }) => {
-                localStorage.setItem("cart", JSON.stringify(payload));
-                state.carts = payload;
-            }),
             build.addCase(removeCart.fulfilled, (state, { payload }) => {
-                localStorage.setItem("cart", JSON.stringify(payload))
-                state.carts = payload
+                const cart = JSON.parse(localStorage.getItem("cart") as any)
+                const cartsa = cart.find((item: any) => item._id == payload._id)
+                const cartsb = cart.filter((item: any) => item !== cartsa)
+                localStorage.setItem("cart", JSON.stringify(cartsb))
+                state.carts = cartsb
             }),
             build.addCase(DecrementRe.fulfilled, (state, { payload }) => {
                 const cart = JSON.parse(localStorage.getItem("cart") as any)

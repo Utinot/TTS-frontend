@@ -3,7 +3,7 @@ import { Layout, Menu, Input } from 'antd';
 import type { MenuProps } from 'antd';
 import Search from 'antd/es/input/Search';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 const { Header } = Layout;
 
 const Headers = (props: any) => {
@@ -18,12 +18,12 @@ const Headers = (props: any) => {
       </div>
     })
   }
-  console.log(sum);
 
   const items: MenuProps['items'] = [
     {
       label: (
-        <img src="https://res.cloudinary.com/dgeqw8b5i/image/upload/v1690873321/lbefgephujjss0llooje.png" alt="" width={'100%'} />
+        <Link to={`/`}><img src="https://res.cloudinary.com/dgeqw8b5i/image/upload/v1690873321/lbefgephujjss0llooje.png" alt="" width={'100%'} />
+        </Link>
       ),
       key: 'logo',
     },
@@ -70,19 +70,20 @@ const Headers = (props: any) => {
     {
       label: (
         // <ZoomInOutlined />
-        <Search placeholder="input search text" enterButton
-          style={{ paddingTop: '8%', width: '100%' }}
+        <Search placeholder="Search product" enterButton
+          style={{ paddingTop: '8%', width: '150%' }}
         />
       ),
 
       key: 'alipay',
-      style: { marginLeft: '30%', }
+      style: { marginLeft: '15%', }
     },
     {
       label: (
         <a href="">login</a>
       ),
       key: 'login',
+      style: { marginLeft: '10%', }
     },
     {
       label: (
@@ -121,6 +122,7 @@ const MenuStyle: React.CSSProperties = {
   color: '#fff',
   paddingLeft: '10%',
 }
+
 
 
 export default Headers

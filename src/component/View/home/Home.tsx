@@ -1,8 +1,9 @@
 import React from 'react'
-import Headers from '../../component/header/Headers.tsx'
-import Benner from '../../component/header/Benner.tsx';
-import Category from '../../component/header/Category.tsx';
-import Footer from '../../component/footer/Footer.tsx';
+import Headers from '../header/Headers.tsx'
+import Benner from '../header/Benner.tsx';
+import Category from '../header/Category.tsx';
+import Footer from '../footer/Footer.tsx';
+import Products from './Products.tsx';
 
 
 type Props = {}
@@ -14,10 +15,13 @@ const Home = (props: Props) => {
                 <Headers />
             </div>
             <div>
+                <Category />
+            </div>
+            <div>
                 <Benner />
             </div>
             <div>
-                <Category />
+                <Products />
             </div>
             <div>
                 <Footer />

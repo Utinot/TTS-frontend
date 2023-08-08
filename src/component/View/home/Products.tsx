@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Card, Col, Row } from 'antd';
-import { listProduct } from '../../api/Products';
+import { listProduct } from '../../../Model/api/Products';
 import { useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -11,16 +11,16 @@ const Products = (props: Props) => {
     const [getProducts, setProducts] = useState<any>([]);
 
     useEffect(() => {
-        getData()
+        getDataProduct()
     }, [])
 
-    const getData = async () => {
+    const getDataProduct = async () => {
         const { data } = await listProduct();
         setProducts(data);
     }
 
     return (
-        <div>
+        <div style={{ width: '80%', margin: 'auto' }}>
             <form >
                 <Row gutter={8}>
                     {getProducts?.map((item: any, index: any) => {
@@ -28,10 +28,10 @@ const Products = (props: Props) => {
                             <Card bordered={false} style={styleCrad}>
                                 <img src={item.img} alt="" width={'80%'} />
                                 <div style={textStyle}>
-                                    <NavLink style={{ color: 'black', fontSize: '28px', paddingTop: '5px' }} to={`/products/${item.id}`}>
+                                    <NavLink style={{ color: 'black', fontSize: '22px', paddingTop: '5px' }} to={`/products/${item.id}`}>
                                         {item.name}
                                     </NavLink>
-                                    <p style={{ color: 'red', fontSize: '28px' }}> <span> ${item.price} </span> </p>
+                                    <p style={{ color: 'black', fontSize: '22px', fontWeight: 'bold' }}> <span> ${item.price} </span> </p>
                                 </div>
                             </Card>
                         </Col>
@@ -43,6 +43,7 @@ const Products = (props: Props) => {
 }
 const styleCrad: React.CSSProperties = {
     textAlign: 'center',
+    marginTop: '5%'
 }
 const textStyle: React.CSSProperties = {
     textAlign: 'left',

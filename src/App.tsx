@@ -1,8 +1,9 @@
 import 'antd/dist/reset.css'
 import { Routes, Route } from 'react-router-dom';
-import Home from './view/home/Home';
-import Detail from './view/detail/Detail';
-import Carts from './view/home/Carts';
+import Detail from './component/View/detail/Detail';
+import Home from './component/View/home/Home';
+import Carts from './component/View/home/Carts';
+
 
 
 function App() {

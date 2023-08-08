@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { detailProducts } from '../../api/Products'
+import { detailProducts } from '../../../Model/api/Products'
 import { useParams } from 'react-router-dom'
-import Headers from '../../component/header/Headers'
-import Footer from '../../component/footer/Footer'
+import Headers from '../header/Headers'
 import { Col, Row } from 'antd'
-import './../../component/header/benner.css'
 import { useDispatch } from 'react-redux';
-import { addCart } from '../../features/cart/Cart.silce';
 import { SubmitHandler, useForm } from 'react-hook-form'
+import "toastr/build/toastr.min.css";
+// import toastr from 'toastr';
+import { addCart } from '../../../Controller/features/cart/CartSlice'
+import Footer from '../footer/Footer'
 
 type Props = {}
 
@@ -21,10 +22,10 @@ const Detail = (props: Props) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     useEffect(() => {
-        getData()
+        getDataDetail()
     }, [])
 
-    const getData = async () => {
+    const getDataDetail = async () => {
         const { data } = await detailProducts(id)
         setDetail(data)
     }
@@ -40,12 +41,10 @@ const Detail = (props: Props) => {
     }
 
 
-    const onCart: SubmitHandler<any> = () => {
+    const on_Click_Cart: SubmitHandler<any> = () => {
         dispatch(addCart(ProductCart))
-        // toastr.success("Thêm vào giỏ hàng thành công!")
-        console.log("them thanh cong");
     }
-    
+
     return (
         <div>
 
@@ -53,7 +52,7 @@ const Detail = (props: Props) => {
                 <Headers />
             </div>
             <div>
-                <form action="" onSubmit={handleSubmit(onCart)}>
+                <form action="" onSubmit={handleSubmit(on_Click_Cart)}>
                     <Row style={{ maxWidth: '80%', margin: 'auto' }}>
                         <Col span={12}>
                             <div style={styleImg}>
