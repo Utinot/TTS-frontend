@@ -3,19 +3,20 @@ import { Routes, Route } from 'react-router-dom';
 import Detail from './component/View/detail/Detail';
 import Home from './component/View/home/Home';
 import Carts from './component/View/home/Carts';
-
-
+import CategoryProduct from './component/View/category/CategoryProduct';
+import Products from './component/View/home/Products';
 
 function App() {
 
   return (
     <div className='App'>
       <Routes>
-        <Route path='/'>
-          <Route index element={<Home />} />
-          <Route path='/products/:id' element={<Detail />} />
-          <Route path='/carts' element={<Carts />} />
+        <Route path='/' element={<Home />}>
+          <Route index element={<Products />} />
+          <Route path='/category/:id' element={<CategoryProduct />} />
         </Route>
+        <Route path='/products/:id' element={<Detail />} />
+        <Route path='/carts' element={<Carts />} />
       </Routes>
     </div>
   )

@@ -4,17 +4,18 @@ import type { MenuProps } from 'antd';
 import Search from 'antd/es/input/Search';
 import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
+import Breadcrumbs from './Breadcrumbs';
 const { Header } = Layout;
 
 const Headers = (props: any) => {
   const carts = useSelector((state: any) => state.cart.carts)
-  let sum = 0;
+  let total = 0;
   if (carts == null) {
 
   } else {
     carts.map((item: any) => {
       return <div>
-        {sum += item.price * item.quantity}
+        {total += item.price * item.quantity}
       </div>
     })
   }
@@ -88,7 +89,7 @@ const Headers = (props: any) => {
     {
       label: (
         <NavLink to={'/carts'}>
-          <span style={{ fontWeight: '700', color: 'red' }}><img src="https://res.cloudinary.com/dgeqw8b5i/image/upload/v1690877367/to7hfzgfgyrwkt9abbuj.png" width={"20%"} /> $ {sum} </span>
+          <span style={{ fontWeight: '700', color: 'red' }}><img src="https://res.cloudinary.com/dgeqw8b5i/image/upload/v1690877367/to7hfzgfgyrwkt9abbuj.png" width={"20%"} /> $ {total} </span>
         </NavLink>
       ),
       key: 'card',
@@ -102,6 +103,9 @@ const Headers = (props: any) => {
         <Menu style={MenuStyle} mode="horizontal" items={items}>
         </Menu>
       </Header>
+        <div>
+          <Breadcrumbs />
+        </div>
     </Layout>
   )
 }

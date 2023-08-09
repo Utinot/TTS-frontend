@@ -25,7 +25,8 @@
       "description": "sam pham này rất tốt ",
       "price": "200",
       "quantity": 10,
-      "color": "Đen"
+      "color": "Đen",
+      "category": 1
     },
     {
       "id": 4,
@@ -34,7 +35,38 @@
       "description": "sam pham này rất tốt ",
       "price": "400",
       "quantity": 10,
-      "color": "Đen"
+      "color": "Đen",
+      "category": 3
+    },
+    {
+      "id": 5,
+      "name": "Áo thời trang",
+      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588992/ao8_pukpua.jpg",
+      "description": "sam pham này rất tốt ",
+      "price": "111",
+      "quantity": 10,
+      "color": "Đen",
+      "category": 1
+    },
+    {
+      "id": 5,
+      "name": "Áo thời trang",
+      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588992/ao8_pukpua.jpg",
+      "description": "sam pham này rất tốt ",
+      "price": "111",
+      "quantity": 10,
+      "color": "Đen",
+      "category": 2
+    },
+    {
+      "id": 5,
+      "name": "Áo thời trang",
+      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588992/ao8_pukpua.jpg",
+      "description": "sam pham này rất tốt ",
+      "price": "111",
+      "quantity": 10,
+      "color": "Đen",
+      "category": 1
     },
     {
       "id": 5,
@@ -44,33 +76,23 @@
       "price": "111",
       "quantity": 10,
       "color": "Đen"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Áo thời trang",
+      "description": "danh muc ao"
     },
     {
-      "id": 5,
-      "name": "Áo thời trang",
-      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588992/ao8_pukpua.jpg",
-      "description": "sam pham này rất tốt ",
-      "price": "111",
-      "quantity": 10,
-      "color": "Đen"
+      "id": 2,
+      "name": "Áo thời trang1",
+      "description": "danh muc ao1"
     },
     {
-      "id": 5,
-      "name": "Áo thời trang",
-      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588992/ao8_pukpua.jpg",
-      "description": "sam pham này rất tốt ",
-      "price": "111",
-      "quantity": 10,
-      "color": "Đen"
-    },
-    {
-      "id": 5,
-      "name": "Áo thời trang",
-      "img": "https://res.cloudinary.com/dgeqw8b5i/image/upload/v1645588992/ao8_pukpua.jpg",
-      "description": "sam pham này rất tốt ",
-      "price": "111",
-      "quantity": 10,
-      "color": "Đen"
+      "id": 3,
+      "name": "Áo thời trang2",
+      "description": "danh muc ao2"
     }
   ]
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 import Headers from '../header/Headers.tsx'
 import Benner from '../header/Benner.tsx';
-import Category from '../header/Category.tsx';
+import Category from '../category/Category.tsx';
 import Footer from '../footer/Footer.tsx';
-import Products from './Products.tsx';
+import { Outlet } from 'react-router-dom';
+import Breadcrumbs from '../header/Breadcrumbs.tsx';
 
 
 type Props = {}
@@ -20,9 +21,9 @@ const Home = (props: Props) => {
             <div>
                 <Benner />
             </div>
-            <div>
-                <Products />
-            </div>
+            <main>
+                <Outlet />
+            </main>
             <div>
                 <Footer />
             </div>

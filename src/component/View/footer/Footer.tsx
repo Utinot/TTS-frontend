@@ -4,7 +4,7 @@ import { CodepenOutlined, FacebookOutlined, InstagramOutlined } from '@ant-desig
 
 type Props = {}
 
-const mangFooter3 = [
+const listArr_cham_suc_khach_hang1 = [
     { id: '2', name: 'Về chúng tôi' },
     { id: '3', name: 'Liên hệ chúng tôi' },
     { id: '4', name: 'Trung tâm trợ giúp' },
@@ -12,7 +12,7 @@ const mangFooter3 = [
     { id: '5', name: 'Chính sách hoàn tiền và hoàn trả' },
 ];
 
-const mangFooter1 = [
+const listArr_Muc_pho_bien = [
     { id: '2', name: 'TV & Rạp hát tại nhà' },
     { id: '3', name: 'Máy tính & Máy tính bảng' },
     { id: '4', name: 'Trung tâm trợ Máy ảnh, Máy quay & Máy bay không người lái' },
@@ -26,7 +26,7 @@ const mangFooter1 = [
     { id: '12', name: 'nhà thông minh' },
 ];
 
-const mangFooter2 = [
+const listArr_cham_suc_khach_hang2 = [
     { id: '2', name: 'Apple' },
     { id: '3', name: 'Samsung' },
     { id: '4', name: 'Xiaomi' },
@@ -40,7 +40,7 @@ const mangFooter2 = [
     { id: '12', name: 'All Brands' },
 ];
 
-const mangFooter4 = [
+const listArr_lien_ket_huu_ich = [
     { id: '2', name: 'thanh toán' },
     { id: '3', name: 'Theo dõi đơn hàng' },
     { id: '4', name: 'Trả lại sản phẩm' },
@@ -49,7 +49,7 @@ const mangFooter4 = [
     { id: '6', name: 'Thủ tục thanh toán' },
 ];
 
-const mangFooter5 = [
+const listArr_cham_suc_khach_hang = [
     { id: '2', name: 'Đăng ký để nhận thông báo về việc ra mắt sản phẩm, ưu đãi đặc biệt và tin tức.' },
     { id: '3', name: 'Theo chúng tôi' },
 ];
@@ -59,7 +59,7 @@ const Footer = (props: Props) => {
     return (
         <div>
             <footer>
-                <div style={{ border: '2px solid #DDDDDD',marginTop:'20px' }}>
+                <div style={{ border: '2px solid #DDDDDD', marginTop: '20px' }}>
                     <Row style={rowStyle}>
                         <Col span={6}>
                             <div style={{ paddingLeft: '10%' }}>
@@ -115,11 +115,11 @@ const Footer = (props: Props) => {
                         </Col>
                     </Row>
                 </div>
-                <div style={{ background: 'black', marginTop:'5px' }}>
+                <div style={{ background: 'black', marginTop: '5px' }}>
                     <Row style={styleFooter}>
                         <Col span={4}>
                             <h2>Danh mục phổ biến</h2>
-                            {mangFooter1?.map((item, index) => {
+                            {listArr_Muc_pho_bien?.map((item, index) => {
                                 return <div style={{ paddingTop: '6%', }} key={index}>
                                     <li style={{ display: 'initial', }}><a href="" style={textA}> {item.name} </a></li>
                                 </div>
@@ -127,7 +127,7 @@ const Footer = (props: Props) => {
                         </Col>
                         <Col span={5} style={{ paddingLeft: '3%' }}>
                             <h2>Chăm sóc khách hàng</h2>
-                            {mangFooter2?.map((item, index) => {
+                            {listArr_cham_suc_khach_hang1?.map((item, index) => {
                                 return <div style={{ paddingTop: '6%', }} key={index}>
                                     <li style={{ display: 'initial', }}><a href="" style={textA}> {item.name} </a></li>
                                 </div>
@@ -135,7 +135,7 @@ const Footer = (props: Props) => {
                         </Col>
                         <Col span={5} style={{ paddingLeft: '2%' }}>
                             <h2>Liên kết hữu ích</h2>
-                            {mangFooter3?.map((item, index) => {
+                            {listArr_lien_ket_huu_ich?.map((item, index) => {
                                 return <div style={{ paddingTop: '6%', }} key={index}>
                                     <li style={{ display: 'initial', }}><a href="" style={textA}> {item.name} </a></li>
                                 </div>
@@ -143,7 +143,7 @@ const Footer = (props: Props) => {
                         </Col>
                         <Col span={5} style={{ paddingLeft: '2%' }}>
                             <h2>Chăm sóc khách hàng</h2>
-                            {mangFooter4?.map((item, index) => {
+                            {listArr_cham_suc_khach_hang2?.map((item, index) => {
                                 return <div style={{ paddingTop: '6%', }} key={index}>
                                     <li style={{ display: 'initial', }}><a href="" style={textA}> {item.name} </a></li>
                                 </div>
@@ -151,7 +151,7 @@ const Footer = (props: Props) => {
                         </Col>
                         <Col span={5} style={{ paddingLeft: '2%' }}>
                             <h2>Liên kết hữu ích</h2>
-                            {mangFooter5?.map((item, index) => {
+                            {listArr_cham_suc_khach_hang?.map((item, index) => {
                                 return <div style={{ paddingTop: '6%', }} key={index}>
                                     <li style={{ display: 'initial', }}><a href="" style={textA}> {item.name} </a></li>
                                 </div>

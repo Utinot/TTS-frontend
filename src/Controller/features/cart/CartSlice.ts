@@ -1,110 +1,66 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
+import "toastr/build/toastr.min.css";
+import { ProductType } from '../../../Model/Types/productTypes';
 
-interface IProductState {
-    cart: {},
-    carts: any[],
-    orderdetail: any[]
+export interface CartItem extends ProductType {
+    quantity: number;
+}
+export interface Cart {
+    carts: CartItem[],
+    total: number,
+    totalItem: number
 }
 
-const initialState: IProductState = {
-    cart: {},
+const initialState: Cart = {
     carts: [],
-    orderdetail: []
-};
-if (localStorage.getItem("cart")) {
-    initialState.carts = JSON.parse(localStorage.getItem("cart") as any);
-} else {
-    initialState.carts = [];
+    total: 0,
+    totalItem: 0
 }
-
-export const addCart = createAsyncThunk(
-    "cart/addcart",
-    async (product: any) => {
-        let carts = [];
-        if (localStorage.getItem("cart")) {
-            carts = JSON.parse(localStorage.getItem("cart") as any);
-        } else {
-            carts = [];
-        }
-        const existProduct = carts.find(
-            (item: { _id: string | undefined }) => item._id === product._id
-        );
-        const existColor = carts.find(
-            (item: { color: string }) => item.color === product.color
-        );
-        const existSize = carts.find(
-            (item: { size: string }) => item.size === product.size
-        );
-
-        if (!existProduct) {
-            carts.push(product);
-        } else {
-            if (!existColor || !existSize) {
-                carts.push(product);
-            } else {
-                existProduct.quantity += product.quantity;
-            }
-        }
-        return carts;
-    }
-);
-
-export const removeCart = createAsyncThunk("cart/removecart", (info: any) => {
-    return info
-})
-
-
-export const DecrementRe = createAsyncThunk("cart/decrement", (info: any) => {
-    return info
-})
-
-export const IncrementRe = createAsyncThunk("cart/increment", (info: any) => {
-    return info
-})
 
 const cartSlice = createSlice({
     name: "cart",
     initialState,
-    reducers: {},
-    extraReducers: (build) => {
-        build.addCase(addCart.fulfilled, (state: any, { payload }) => {
-            localStorage.setItem("cart", JSON.stringify(payload));
-            state.carts = payload;
-        }),
-            build.addCase(removeCart.fulfilled, (state, { payload }) => {
-                const cart = JSON.parse(localStorage.getItem("cart") as any)
-                const cartsa = cart.find((item: any) => item._id == payload._id)
-                const cartsb = cart.filter((item: any) => item !== cartsa)
-                localStorage.setItem("cart", JSON.stringify(cartsb))
-                state.carts = cartsb
-            }),
-            build.addCase(DecrementRe.fulfilled, (state, { payload }) => {
-                const cart = JSON.parse(localStorage.getItem("cart") as any)
-                const cartsa = cart.find((item: any) => item._id == payload._id)
-                cartsa.quantity--
-                if (cartsa.quantity <= 0) {
-                    const confirm = window.confirm("Bạn có chắc chắn muốn xoá không")
-                    if (confirm) {
-                        const cartsb = cart.filter((item: any) => item !== cartsa)
-                        localStorage.setItem("cart", JSON.stringify(cartsb))
-                        state.carts = cartsb
-                        return
-                    }
-                    else {
-                        return
-                    }
+    reducers: {
+        addToCart: (state, action: PayloadAction<CartItem>) => {
+            const product = action.payload;
+            const checkCart = state.carts.find((e) => e.id === action.payload.id);
+            if (checkCart) {
+                checkCart.quantity += 1;
+            } else {
+                state.carts.push({ ...product, quantity: 1 })
+            }
+        },
+        increQuantity: (state, action) => {
+            const curItem = state.carts.find((item) => item.id === action.payload);
+            if (curItem) {
+                curItem.quantity += 1
+            }
+            state.totalItem += 1
+            state.total += Number(curItem?.price)
+        },
+        decreQuantity: (state, action) => {
+            const curItem = state.carts.find((item) => item.id === action.payload)
+            if (curItem) {
+                curItem.quantity -= 1;
+                if (!curItem.quantity || curItem.quantity === 0) {
+                    state.carts = state.carts.filter((item) => item.id !== action.payload);
                 }
-                localStorage.setItem("cart", JSON.stringify(cart))
-                state.carts = cart
-            }),
-            build.addCase(IncrementRe.fulfilled, (state, { payload }) => {
-                const cart = JSON.parse(localStorage.getItem("cart") as any)
-                const cartsa = cart.find((item: any) => item._id == payload._id)
-                cartsa.quantity++
+            }
+            state.totalItem -= 1
+            state.total -= Number(curItem?.price)
+        },
+        removeCart: (state, action) => {
+            const curItem = state.carts.find((item) => item.id === action.payload)
+            const product = action.payload
+            state.carts = state.carts.filter((item) => item.id !== product);
+            state.totalItem = state.totalItem - action.payload.quantity;
+            state.total -= Number(curItem?.price) * Number(curItem?.quantity)
 
-                localStorage.setItem("cart", JSON.stringify(cart))
-                state.carts = cart
-            })
+
+        },
     }
-});
-export default cartSlice.reducer;
+})
+
+export const { addToCart, increQuantity, removeCart, decreQuantity } = cartSlice.actions
+export default cartSlice.reducer
