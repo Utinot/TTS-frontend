@@ -1,6 +1,6 @@
 import React from 'react'
 import { Layout, Menu, type MenuProps } from 'antd';
-import { AlignLeftOutlined, RocketOutlined, SmileOutlined } from '@ant-design/icons';
+import { RocketOutlined, SmileOutlined } from '@ant-design/icons';
 import Sider from './CelectCategory';
 const { Header } = Layout;
 

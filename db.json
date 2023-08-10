@@ -7,7 +7,9 @@
       "description": "sam pham này rất tốt ",
       "price": "333",
       "quantity": 10,
-      "color": "Đen"
+      "color": "Đen",
+      "category": 2,
+      "type": 1
     },
     {
       "id": 2,
@@ -16,7 +18,9 @@
       "description": "sam pham này rất tốt ",
       "price": "300",
       "quantity": 10,
-      "color": "Đen"
+      "color": "Đen",
+      "category": 3,
+      "type": 2
     },
     {
       "id": 3,
@@ -26,7 +30,8 @@
       "price": "200",
       "quantity": 10,
       "color": "Đen",
-      "category": 1
+      "category": 1,
+      "type": 1
     },
     {
       "id": 4,
@@ -36,7 +41,8 @@
       "price": "400",
       "quantity": 10,
       "color": "Đen",
-      "category": 3
+      "category": 3,
+      "type": 3
     },
     {
       "id": 5,
@@ -46,7 +52,8 @@
       "price": "111",
       "quantity": 10,
       "color": "Đen",
-      "category": 1
+      "category": 1,
+      "type": 2
     },
     {
       "id": 5,
@@ -56,7 +63,8 @@
       "price": "111",
       "quantity": 10,
       "color": "Đen",
-      "category": 2
+      "category": 2,
+      "type": 3
     },
     {
       "id": 5,
@@ -66,7 +74,8 @@
       "price": "111",
       "quantity": 10,
       "color": "Đen",
-      "category": 1
+      "category": 1,
+      "type": 2
     },
     {
       "id": 5,

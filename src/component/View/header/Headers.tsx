@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
-import { Layout, Menu, Input } from 'antd';
+import React from 'react'
+import { Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import Search from 'antd/es/input/Search';
 import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import Breadcrumbs from './Breadcrumbs';
+import { UserOutlined } from '@ant-design/icons';
+import SearchProduct from './SearchProduct';
 const { Header } = Layout;
 
-const Headers = (props: any) => {
+const Headers = () => {
   const carts = useSelector((state: any) => state.cart.carts)
   let total = 0;
   if (carts == null) {
@@ -38,7 +39,7 @@ const Headers = (props: any) => {
     },
     {
       label: (
-        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+        <a href="" target="_blank" rel="noopener noreferrer">
           Blog
         </a>
       ),
@@ -46,7 +47,7 @@ const Headers = (props: any) => {
     },
     {
       label: (
-        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+        <a href="" target="_blank" rel="noopener noreferrer">
           Category
         </a>
       ),
@@ -54,7 +55,7 @@ const Headers = (props: any) => {
     },
     {
       label: (
-        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+        <a href="" target="_blank" rel="noopener noreferrer">
           shop
         </a>
       ),
@@ -62,7 +63,7 @@ const Headers = (props: any) => {
     },
     {
       label: (
-        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+        <a href="" target="_blank" rel="noopener noreferrer">
           Others
         </a>
       ),
@@ -70,10 +71,7 @@ const Headers = (props: any) => {
     },
     {
       label: (
-        // <ZoomInOutlined />
-        <Search placeholder="Search product" enterButton
-          style={{ paddingTop: '8%', width: '150%' }}
-        />
+        <SearchProduct />
       ),
 
       key: 'alipay',
@@ -81,7 +79,7 @@ const Headers = (props: any) => {
     },
     {
       label: (
-        <a href="">login</a>
+        <a href="" > <UserOutlined style={{ fontSize: '20px' }} />Login</a>
       ),
       key: 'login',
       style: { marginLeft: '10%', }
@@ -89,7 +87,7 @@ const Headers = (props: any) => {
     {
       label: (
         <NavLink to={'/carts'}>
-          <span style={{ fontWeight: '700', color: 'red' }}><img src="https://res.cloudinary.com/dgeqw8b5i/image/upload/v1690877367/to7hfzgfgyrwkt9abbuj.png" width={"20%"} /> $ {total} </span>
+          <span style={{ fontWeight: '700', color: 'red' }}><img src="https://res.cloudinary.com/dgeqw8b5i/image/upload/v1690877367/to7hfzgfgyrwkt9abbuj.png" width={"15%"} /> $ {total} </span>
         </NavLink>
       ),
       key: 'card',
@@ -103,9 +101,9 @@ const Headers = (props: any) => {
         <Menu style={MenuStyle} mode="horizontal" items={items}>
         </Menu>
       </Header>
-        <div>
-          <Breadcrumbs />
-        </div>
+      <div>
+        <Breadcrumbs />
+      </div>
     </Layout>
   )
 }
@@ -126,7 +124,6 @@ const MenuStyle: React.CSSProperties = {
   color: '#fff',
   paddingLeft: '10%',
 }
-
 
 
 export default Headers

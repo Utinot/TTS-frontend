@@ -3,9 +3,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { Col, Row } from 'antd';
 import { useAppDispatch, useAppSelector } from '../../../Model/app/hook';
 import { decreQuantity, increQuantity, removeCart } from '../../../Controller/features/cart/CartSlice';
-
-
-type Props = {}
+import { Link } from 'react-router-dom';
 
 const list_Th = [
     { id: 1, name: 'STT' },
@@ -15,10 +13,9 @@ const list_Th = [
     { id: 1, name: 'Tên sản phẩm' },
     { id: 1, name: 'Tổng đơn giá' },
     { id: 1, name: 'Action' },
-
 ]
 
-const Carts = (props: Props) => {
+const Carts = () => {
     const { carts } = useAppSelector(item => item.cart)
     const dispatch = useAppDispatch()
 
@@ -54,6 +51,9 @@ const Carts = (props: Props) => {
             <div>
                 <Headers />
             </div>
+            <div>
+                <h1 style={titleStyle}> Cart</h1>
+            </div>
             <div style={{ margin: 'auto', width: '70%', paddingTop: '7%' }}>
                 <Row>
                     <Col span={16}>
@@ -67,7 +67,7 @@ const Carts = (props: Props) => {
                             </thead>
                             <tbody >
                                 {carts?.map((item: any, index: any) => {
-                                    return <tr style={{ borderStyle: 'solid', borderColor: 'inherit', borderWidth: '1px', }}>
+                                    return <tr key={index++} style={{ borderBottom: '2px solid #DDDDDD', paddingBottom: '20px' }}>
                                         <td>{index + 1}</td>
                                         <td> <img src={item.img} alt="" width={100} /> </td>
                                         <td>{item.price}</td>
@@ -87,11 +87,14 @@ const Carts = (props: Props) => {
                     <Col span={7}>
                         <div style={boxText}>
                             <div style={{ width: '80%', margin: 'auto' }}>
-                                <h2 style={{ paddingTop: '10%' }}>Tổng số tiền hàng</h2>
+                                <h2 style={{ paddingTop: '10%', borderBottom: '1px solid #DDDDDD', paddingBottom: '6%' }}>Tổng số tiền hàng</h2>
                                 <div>
-                                    <h1 style={{ paddingTop: '15%' }}> Tổng cộng: <span> {total} </span></h1>
+                                    <h2 style={{ paddingTop: '15%', borderBottom: '1px solid #DDDDDD', paddingBottom: '6%' }}> Tổng cộng <span style={{ float: 'right' }}> {total} </span></h2>
                                 </div>
-                                <button style={{ width: '100%', borderRadius: '10px', backgroundColor: 'yellow', border: 'none', padding: '5%', margin: '10% 0px 10%' }}>Kiểm tra hàng</button>
+                                <div style={{ width: '100%', margin: '15% 0px 15%', textAlign: 'center', backgroundColor: '#f6eb16', padding: '6%', borderRadius: '10px', border: 'none' }}>
+
+                                    <Link to={''} style={{ fontSize: '20px', fontWeight: '500', color: 'black' }}>Kiểm tra hàng</Link>
+                                </div>
                             </div>
                         </div>
                     </Col>
@@ -107,6 +110,14 @@ const boxText: React.CSSProperties = {
     backgroundColor: 'var(--wp--preset--color--white)',
     boxShadow: '0px 6px 15px 0px rgba(64, 79, 104, 0.05)',
 }
-
+const titleStyle: React.CSSProperties = {
+    fontFamily: "var(--wp--preset--font - family--dm - sans)",
+    color: "var(--wp--preset--color--secondary)",
+    textAlign: 'center',
+    margin: 'auto',
+    fontSize: '40px',
+    fontWeight: '700',
+    paddingTop: '30px'
+}
 
 export default Carts

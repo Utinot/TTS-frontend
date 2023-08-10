@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Card, Col, Row } from 'antd';
 import { listProduct } from '../../../Model/api/Products';
 import { useEffect } from 'react';
-import { Link, NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { listCategoryProduct } from '../../../Model/api/Category';
 
 type Props = {}

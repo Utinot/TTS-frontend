@@ -1,5 +1,4 @@
 import { Breadcrumb } from 'antd'
-import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 type Props = {}
@@ -21,7 +20,7 @@ const Breadcrumbs = (props: Props) => {
     })
   return (
     <div>
-      <Breadcrumb style={{color:'black', fontWeight:'800', marginLeft:'10%'}}>{crumbs}</Breadcrumb>
+      <Breadcrumb style={{ color: 'black', fontWeight: '800', marginLeft: '10%' }}>{crumbs}</Breadcrumb>
     </div>
   )
 }

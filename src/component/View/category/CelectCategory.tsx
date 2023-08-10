@@ -4,8 +4,6 @@ import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { listCategory } from '../../../Model/api/Category';
 
-
-
 const CelectCategory = () => {
     const [getCategory, setCategory] = useState<any>([])
 
@@ -46,10 +44,6 @@ const CelectCategory = () => {
         },
 
     ];
-
-    // .log(current);
-
-
 
     return (
         <Menu mode="horizontal" items={items} style={{ fontSize: "22px", }} />

@@ -2,12 +2,9 @@ import React, { useState } from 'react'
 import { Card, Col, Row } from 'antd';
 import { listProduct } from '../../../Model/api/Products';
 import { useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-type Props = {}
-
-
-const Products = (props: Props) => {
+const Products = () => {
     const [getProducts, setProducts] = useState<any>([]);
 
     useEffect(() => {
