@@ -4,7 +4,6 @@ import Benner from '../header/Benner.tsx';
 import Category from '../category/Category.tsx';
 import Footer from '../footer/Footer.tsx';
 import { Outlet } from 'react-router-dom';
-import Breadcrumbs from '../header/Breadcrumbs.tsx';
 
 
 type Props = {}

@@ -44,8 +44,6 @@ const Carts = () => {
         }
     }
 
-
-
     return (
         <div>
             <div>

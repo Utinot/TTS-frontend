@@ -35,9 +35,6 @@ const Detail = () => {
         setProduct(data)
     }
 
-    console.log(getProduct);
-
-
     return (
         <div>
 
